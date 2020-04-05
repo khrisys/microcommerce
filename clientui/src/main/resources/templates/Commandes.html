@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<!--Pour que les "th" de thymeleaf fonctionnent dans le fichier pour faire des boucle, il faut declarer qu'on utilise thymeleaf ici-->
+<html xmlns:th="http://www.thymeleaf.org" >
+    <head >
+        <title >Mcommerce</title >
+        
+        <link rel="stylesheet"
+              type="text/css"
+              href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css" />
+    </head >
+    
+    
+    <body >
+        <div class="container" >
+            
+            <h1 class="text-center" >Application Mcommerce - Commandes</h1 >
+            
+            <!--            Boucle dans thymleaf opur affichage des produits dans l'ihm -->
+            <div class="row" >
+                <!--  La var "produits" ci dessous doit etre imperativment la meme (orthographe) que celle qu'on a declarée dans
+                 le controller, au niveau du model.addAttribute() -->
+                <div th:each="commande : ${commandes}" class="col-md-4 my-1" >
+<!--                    Ceci est l'URL vers chaque produit dans le HTML-->
+                    <a th:href="@{|/commandes/${commande.id}|}" >
+                        <img th:text="${commande.productId}" class="card-img-top" />
+                        <p th:text="${produit.titre}" ></p >
+                        <p >
+                            <input type="submit" class="card-img-top"
+                                   th:text="${commande.titre}" />
+                        </p >
+                    </a >
+                </div >
+            </div >
+        </div >
+        
+        <script type="text/javascript"
+                src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js" ></script >
+    
+    </body >
+</html >
