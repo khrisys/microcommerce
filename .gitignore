@@ -1,0 +1,3 @@
+# Je ne commit pas le dossier config-server-repo car il est dejà lié à un repo github à part pour la configuration de tous les
+# microservices
+config-server-repo/

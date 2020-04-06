@@ -30,7 +30,7 @@ public class CustomErrorDecoder implements ErrorDecoder {
     @Override
     public Exception decode(String methodKey, Response response) {
     
-        System.out.println("LOG : " + methodKey.toString());
+        System.out.println("LOG : " + methodKey);
         // Si le code d'erreur est 400, on veut renvoyer notre propre exception
 //        if(response.status() == 400 ) {
 //            return new ProductBadRequestException(

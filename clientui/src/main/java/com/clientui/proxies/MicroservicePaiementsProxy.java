@@ -27,6 +27,6 @@ public interface MicroservicePaiementsProxy {
     // LES MTHODES A APPELLER ICI SONT LES METHODES A APPELLER DANS LE CONTROLLER DU SERVICE DISTANT (SA SIGNATURE)
     
     @PostMapping(value = "/paiement")
-    public ResponseEntity<PaiementBean> payerUneCommande(@RequestBody PaiementBean paiement);
+    ResponseEntity<PaiementBean> payerUneCommande(@RequestBody PaiementBean paiement);
     
 }
