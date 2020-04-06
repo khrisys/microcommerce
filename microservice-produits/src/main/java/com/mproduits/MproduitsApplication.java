@@ -13,10 +13,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  *  * Les haricots {@link ConfigurationProperties} peuvent être enregistrés de la manière standard (pour
  *  * exemple utilisant les méthodes {@link org.springframework.context.annotation.Bean @Bean}) ou, par commodité, peut être spécifié
  *  * directement sur cette annotation.
- * @ConfigurationProperties va permettre de recuprer les données qu ise trouvent dans le fichier de configuration. Il prend ne
- * param le prefix des configs indiqué dans chaque fichier application.properties.
- * application.properties  peut être utilisé pour stocker des constantes auxquelles on peut accéder grâce à un bean annoté avec
- * @ConfigurationProperties .
+ * @EnableCOnfigurationProperties (apparu avec Eureka)
  * @EnableDiscoveryClient permettant l'mplementation de la decouverte de clients, les clients etant eureka. Votre Microservice
  * bénéficie à présent du client Eureka, qui ira enregistrer votre instance à chaque démarrage.
  */

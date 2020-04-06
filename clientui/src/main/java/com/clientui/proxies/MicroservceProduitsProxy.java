@@ -1,6 +1,7 @@
 package com.clientui.proxies;
 
 import com.clientui.beans.ProductBean;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,8 +21,12 @@ import java.util.List;
  * 1 - il faut renseigner "microservice-produits" dans application.properties du microservice produit!!!!
  * 2 - Il faut aussi renseigner l'URL d'entrée des produits (chaque module possede un port different)
  */
-@FeignClient(name = "microservice-produits", url = "localhost:9001") // Declaration du proxy comme etant un client Feign avce
-// le nom du microservice à appeller + l'URL
+//@FeignClient(name = "microservice-produits", url = "localhost:9001") // Declaration du proxy comme etant un client Feign avce
+// le nom du microservice à appeller + l'URL du microservice
+
+// C'est desormais Ribbon (load balancer) qui gere les url à des differentes instances des MS produits'
+@FeignClient("microservice-produits")
+@RibbonClient("microservice-produits")
 public interface MicroservceProduitsProxy {
     
     // LES MTHODES A APPELLER ICI SONT LES METHODES A APPELLER DANS LE CONTROLLER DU SERVICE DISTANT (SA SIGNATURE)
