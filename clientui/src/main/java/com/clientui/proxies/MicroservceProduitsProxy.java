@@ -25,7 +25,8 @@ import java.util.List;
 // le nom du microservice à appeller + l'URL du microservice
 
 // C'est desormais Ribbon (load balancer) qui gere les url à des differentes instances des MS produits'
-@FeignClient("microservice-produits")
+@FeignClient("zuul-server") //Desomrais, le client ne fait plus appel aux MS directement, mais passe par l'intermediaire de
+// Zuul. Il faut alors obligatiorement ajouter "/microservice-produits" devant toutes lkes URI des @getMapping
 @RibbonClient("microservice-produits")
 //@FeignClient(name = "microservice-produits", url = "localhost:9001")
 public interface MicroservceProduitsProxy {
@@ -35,12 +36,12 @@ public interface MicroservceProduitsProxy {
     // Grace  à l'interface vert les produits, on peut lier l'url de l'interface avec le mapping de la methode. Ainsi, on
     // obtient "localhost:9001/Produits"! feign sait exactement où se trouve la ressource demandée.
     // Recupere tous les produits
-    @GetMapping(value = "/Produits")
+    @GetMapping(value = "/microservice-produits/Produits")
     List<ProductBean> listeDesProduits(); //L'equivalent de "Bean" dans Produit est ici "ProductBean"
     
     
     //Récuperer un produit par son id
-    @GetMapping(value = "/Produits/{id}")
+    @GetMapping(value = "/microservice-produits/Produits/{id}")
     ProductBean recupererUnProduit(@PathVariable("id") int id); //SUbtilité! Apres @PathVariable, il faut rajouter à
     // @PathVariable entre paretheses le nom du param "id". Celui ci correspond à l'id à passer dans l'url "/Produits/{id}"
 }
