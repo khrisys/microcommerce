@@ -27,6 +27,7 @@ import java.util.List;
 // C'est desormais Ribbon (load balancer) qui gere les url à des differentes instances des MS produits'
 @FeignClient("microservice-produits")
 @RibbonClient("microservice-produits")
+//@FeignClient(name = "microservice-produits", url = "localhost:9001")
 public interface MicroservceProduitsProxy {
     
     // LES MTHODES A APPELLER ICI SONT LES METHODES A APPELLER DANS LE CONTROLLER DU SERVICE DISTANT (SA SIGNATURE)
