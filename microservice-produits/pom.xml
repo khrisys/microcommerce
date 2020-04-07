@@ -72,6 +72,17 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
+        
+        <!-- Identifier (tagger) chaque requete pour la tracer. Donne un ID unique à chaque requete à travers les MS -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <!-- Tracer les requetes identifiées par Sleuth. NE PAS OUBLIER DE TELECHARGE LE JAR DE ZIPKIN ET DE LE LANCER AVANT-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+        </dependency>
     </dependencies>
     
     

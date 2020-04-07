@@ -4,6 +4,8 @@ import com.mproduits.configurations.AplicationPropertiesConfiguration;
 import com.mproduits.dao.ProductDao;
 import com.mproduits.model.Product;
 import com.mproduits.web.exceptions.ProductNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +24,10 @@ public class ProductController {
     @Autowired
     AplicationPropertiesConfiguration aplicationPropertiesConfiguration;
     
+    // Creation du logger pour ajouter un message à la console pour identifier dans toutes les lgines OU est la requete qu'on
+    // cherche
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    
     /**
      * Affiche la liste de tous les produits disponibles
      *
@@ -37,6 +43,8 @@ public class ProductController {
             throw new ProductNotFoundException("Aucun produit n'est disponible à la vente");
         // Ici, en utilisant le fichier de propriété, on apeut limiter le nb d'items affichés  à l'ecran de l'user'
         List<Product> listeLimites = products.subList(0, aplicationPropertiesConfiguration.getLimiteDeProduits());
+        // tracage de la requete
+        logger.info(" ********** recuperation de la liste des produits : ");
         
         return listeLimites;
     }

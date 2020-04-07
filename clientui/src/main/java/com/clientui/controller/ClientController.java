@@ -7,6 +7,8 @@ import com.clientui.exceptions.ImpossibleAjouterCommandeException;
 import com.clientui.proxies.MicroservceProduitsProxy;
 import com.clientui.proxies.MicroserviceCommandesProxy;
 import com.clientui.proxies.MicroservicePaiementsProxy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +43,8 @@ public class ClientController {
     @Autowired
     MicroservicePaiementsProxy microservicePaiementsProxy;
     
+    private Logger log = LoggerFactory.getLogger(this.getClass());
+    
     /**
      * Recupere et affiche la liste de tous les produits sur la page d'accueil
      *
@@ -55,6 +59,8 @@ public class ClientController {
         // Passer le liste de produits recupérés vers le template (Accueil.html) -> C'est le model qui se charge de
         // ca avec la mthode addAttribute()
         pModel.addAttribute("produits", produits);
+    
+        log.info("Récupération de la liste des produits dans la page d'accueil : ");
         // Desomrais dans Accueil, on a acces à la liste de tous les produits avec la var "produits". ATTENTION : il faut changer
         // un peu le code du template "Accueil.html" pour boucler sur les produits recupérés
         return "Accueil";

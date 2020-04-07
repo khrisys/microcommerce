@@ -44,7 +44,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-    
+        
         <!-- Eureka pour que ce MS aille s'enregistrer dans Eureka -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -57,7 +57,19 @@
             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </dependency>
         
+        <!-- Identifier (tagger) chaque requete pour la tracer. Donne un ID unique à chaque requete à travers les MS -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <!-- Tracage de toutes les requetes qui passent dans tous les MS-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+        </dependency>
     </dependencies>
+    
+    
     <dependencyManagement>
         <dependencies>
             <dependency>

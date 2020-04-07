@@ -3,11 +3,11 @@ package com.mcommerce.zuulserver.filters;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.logging.Logger;
 
 /**
  * Classe permettant de faire des filtres sur les requetes envoyées depuis le client vers les differents MS. Les filtres
@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 @Component
 public class LogFilter extends ZuulFilter {
     
-    Logger vLogger = Logger.getLogger(String.valueOf(this.getClass()));
+    private Logger vLogger = LoggerFactory.getLogger(this.getClass());
     
     //Choix du moment où je veux que le filtre s'applique :avec "pre" ou "post". Lorsque la requete va arrive, si "pre" est
     // choisi, alors la requete sera filtrée avant d'etre relayée vers le MS. Sio n choisi "post", le filtre sera executé dans
@@ -50,7 +50,7 @@ public class LogFilter extends ZuulFilter {
     
         HttpServletRequest vHttpServlet = RequestContext.getCurrentContext().getRequest();
         
-        vLogger.info(" *************** Requete interceptée : " + vHttpServlet.getRequestURL());
+        vLogger.info(" *************** Requete interceptée dans zuul : " + vHttpServlet.getRequestURL());
         
         return null;
     }
