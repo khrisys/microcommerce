@@ -28,7 +28,6 @@ import java.util.List;
 @FeignClient("zuul-server") //Desomrais, le client ne fait plus appel aux MS directement, mais passe par l'intermediaire de
 // Zuul. Il faut alors obligatiorement ajouter "/microservice-produits" devant toutes lkes URI des @getMapping
 @RibbonClient("microservice-produits")
-//@FeignClient(name = "microservice-produits", url = "localhost:9001")
 public interface MicroservceProduitsProxy {
     
     // LES MTHODES A APPELLER ICI SONT LES METHODES A APPELLER DANS LE CONTROLLER DU SERVICE DISTANT (SA SIGNATURE)
