@@ -3,7 +3,6 @@ package com.clientui.controller;
 import com.clientui.beans.CommandeBean;
 import com.clientui.beans.PaiementBean;
 import com.clientui.beans.ProductBean;
-import com.clientui.exceptions.ImpossibleAjouterCommandeException;
 import com.clientui.proxies.MicroservceProduitsProxy;
 import com.clientui.proxies.MicroserviceCommandesProxy;
 import com.clientui.proxies.MicroservicePaiementsProxy;
@@ -15,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Date;
@@ -60,7 +58,7 @@ public class ClientController {
         // ca avec la mthode addAttribute()
         pModel.addAttribute("produits", produits);
     
-        log.info("Récupération de la liste des produits dans la page d'accueil : ");
+        log.info("LOG - Récupération de la liste des produits dans la page d'accueil : ");
         // Desomrais dans Accueil, on a acces à la liste de tous les produits avec la var "produits". ATTENTION : il faut changer
         // un peu le code du template "Accueil.html" pour boucler sur les produits recupérés
         return "Accueil";
