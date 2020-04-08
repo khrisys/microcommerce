@@ -13,6 +13,7 @@
         <module name="mproduits" />
         <module name="clientui" />
         <module name="mcommandes" />
+        <module name="spring-admin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,6 +23,7 @@
       <module name="mcommandes" target="1.8" />
       <module name="mpaiement" target="1.8" />
       <module name="mproduits" target="1.8" />
+      <module name="spring-admin" target="1.8" />
       <module name="zuul-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -33,6 +35,7 @@
       <module name="mcommandes" options="-parameters" />
       <module name="mpaiement" options="-parameters" />
       <module name="mproduits" options="-parameters" />
+      <module name="spring-admin" options="-parameters" />
       <module name="zuul-server" options="-parameters" />
     </option>
   </component>

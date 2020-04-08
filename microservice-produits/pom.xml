@@ -61,7 +61,9 @@
         </dependency>
         
         <!-- actualiser et de recharger le fichier de configuration à la volée en cas de changement de param dans un des-->
-        <!-- fichiers  de conf du github-->
+        <!-- fichiers  de conf du github.
+        Il permet egalement d'exposer plusieurs endpoints (donc, c'est une vraie API REST) dans laquelle on va pouvoir piocher
+        des infos sur notre MS-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
