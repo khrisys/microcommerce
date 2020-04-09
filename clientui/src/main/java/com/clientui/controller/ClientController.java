@@ -9,6 +9,8 @@ import com.clientui.proxies.MicroservicePaiementsProxy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.health.Health;
+import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -32,7 +34,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * permet d'envoyer des requete via POST, ici, on ne fait que recevoir des requetes
  */
 @Controller
-public class ClientController {
+public class ClientController implements HealthIndicator {
     
     
     @Autowired // CReation d'uns instance de MicroserviceProxy avec @Autowired (evite de faire un "new")
@@ -145,7 +147,15 @@ public class ClientController {
                 .current().nextLong(1000000000000000L,9000000000000000L);
     }
     
-//    @RequestMapping(value = "/commandes")
+    @Override
+    public Health health() {
+        if(microservceProduitsProxy.listeDesProduits().isEmpty()){
+            return Health.up().build();
+        }
+        return Health.down().build();
+    }
+    
+    //    @RequestMapping(value = "/commandes")
 //    public String ajouterCommande(@RequestBody CommandeBean commande, Model pModel) {
 //
 //

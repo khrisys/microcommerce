@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Classe permettant d'identifier chaquer requete ecffectuée dans l'appli, de lui donner un ID unique et de suivre cette
- * requete à chaque etape des MS passés
+ * Apres insertion de depndance Sleuth, classe permettant d'identifier chaquer requete ecffectuée dans l'appli, de lui donner
+ * un ID unique et de suivre cette requete à chaque etape des MS passés
  *
  * @Configuration ; on rajoute cette annotations parce que cette classe java est une classe de configuration
  */

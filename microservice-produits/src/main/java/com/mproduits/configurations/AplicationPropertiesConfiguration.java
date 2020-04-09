@@ -6,8 +6,8 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
 /**
- * Classe de configuration permettant de gerer l'ensemble des fihciers "application.properties" de toutes les instance de
- * microservice-produits.
+ * creation de classe de configuration permettant de gerer l'ensemble des fihciers
+ * "application.properties" de toutes les instance de microservice-produits.
  * Ici le but de cette classe est de recuperer depuis tous les fihciers "application.properties" toutes les proprietes qui
  * commencent par "mes-configs" (par ex "mes-configs.limiteDeproduits") + leur propriétés, avec leurs valeurs. Ces valeurs seront
  * stockés dans les var definies dans la classe ( param doit avoir exactement le meme nom)
